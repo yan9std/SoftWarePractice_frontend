@@ -1,14 +1,14 @@
 <template>
-  <div class="app-container center">
-    <el-empty description="欢迎来到首页" />
+  <div>
+    <ParkingOverview />
   </div>
 </template>
 
-<style lang="scss" scoped>
-.center {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<script>
+import ParkingOverview from "@/views/dashboard/components/ParkingOverview.vue"
+export default {
+  components: {
+    ParkingOverview
+  }
 }
-</style>
+</script>

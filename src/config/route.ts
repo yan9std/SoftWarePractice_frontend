@@ -20,8 +20,8 @@ interface RouteSettings {
 }
 
 const routeSettings: RouteSettings = {
-  dynamic: true,
-  defaultRoles: ["DEFAULT_ROLE"],
+  dynamic: false,
+  defaultRoles: ["admin"],
   thirdLevelRouteCache: false
 }
 

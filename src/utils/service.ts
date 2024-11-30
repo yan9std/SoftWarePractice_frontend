@@ -36,7 +36,7 @@ function createService() {
         return Promise.reject(new Error("非本系统的接口"))
       }
       switch (code) {
-        case 0:
+        case 200:
           // 本系统采用 code === 0 来表示没有业务错误
           return apiData
         case 401:
@@ -103,12 +103,12 @@ function createRequest(service: AxiosInstance) {
     const defaultConfig = {
       headers: {
         // 携带 Token
-        Authorization: token ? `Bearer ${token}` : undefined,
-        "Content-Type": "application/json"
+        token: token ? token : undefined
+        //"Content-Type": "application/json"
       },
       timeout: 5000,
-      baseURL: import.meta.env.VITE_BASE_API,
-      data: {}
+      baseURL: import.meta.env.VITE_BASE_API
+      //data: {}
     }
     // 将默认配置 defaultConfig 和传入的自定义配置 config 进行合并成为 mergeConfig
     const mergeConfig = merge(defaultConfig, config)

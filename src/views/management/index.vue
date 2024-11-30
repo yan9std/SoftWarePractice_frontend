@@ -130,7 +130,7 @@ watch([() => paginationData.currentPage, () => paginationData.pageSize], getTabl
     <el-card v-loading="loading" shadow="never">
       <div class="toolbar-wrapper">
         <div>
-          <el-button type="primary" :icon="CirclePlus" @click="dialogVisible = true">新增用户</el-button>
+          <el-button type="primary" :icon="CirclePlus" @click="dialogVisible = true">新增停车场</el-button>
           <el-button type="danger" :icon="Delete">批量删除</el-button>
         </div>
         <div>
@@ -145,24 +145,13 @@ watch([() => paginationData.currentPage, () => paginationData.pageSize], getTabl
       <div class="table-wrapper">
         <el-table :data="tableData">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column prop="username" label="用户名" align="center" />
-          <el-table-column prop="roles" label="角色" align="center">
-            <template #default="scope">
-              <el-tag v-if="scope.row.roles === 'admin'" type="primary" effect="plain" disable-transitions>
-                admin
-              </el-tag>
-              <el-tag v-else type="warning" effect="plain" disable-transitions>{{ scope.row.roles }}</el-tag>
-            </template>
-          </el-table-column>
-          <el-table-column prop="phone" label="手机号" align="center" />
-          <el-table-column prop="email" label="邮箱" align="center" />
-          <el-table-column prop="status" label="状态" align="center">
-            <template #default="scope">
-              <el-tag v-if="scope.row.status" type="success" effect="plain" disable-transitions>启用</el-tag>
-              <el-tag v-else type="danger" effect="plain" disable-transitions>禁用</el-tag>
-            </template>
-          </el-table-column>
-          <el-table-column prop="createTime" label="创建时间" align="center" />
+          <el-table-column prop="parkingname" label="名称" align="center" />
+          <el-table-column prop="location" label="位置" align="center" />
+          <el-table-column prop="parking" label="泊位总数" align="center" />
+          <el-table-column prop="openhour" label="开放时段" align="center" />
+          <el-table-column prop="charge" label="收费标准" align="center" />
+          <el-table-column prop="administration" label="管理单位" align="center" />
+          <el-table-column prop="phonenumber" label="联系方式" align="center" />
           <el-table-column fixed="right" label="操作" width="150" align="center">
             <template #default="scope">
               <el-button type="primary" text bg size="small" @click="handleUpdate(scope.row)">修改</el-button>
